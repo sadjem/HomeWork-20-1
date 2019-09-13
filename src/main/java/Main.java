@@ -1,14 +1,17 @@
-import Responses.Album;
 import Responses.Post;
+import Responses.User;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         MyApiService myApiService = MyApiService.getInstance();
         Post post = myApiService.getPostById(1);
         System.out.println(post);
+        List<Post> posts = myApiService.getPosts();
+        System.out.println(posts);
 
-        System.out.println("============");
-        Album album = myApiService.getAlbumById(1);
-        System.out.println(album);
+        List<User> users = myApiService.getUsers();
+        System.out.println(users);
     }
 }

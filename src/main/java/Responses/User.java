@@ -6,7 +6,7 @@ public class User {
     private String username;
     private String email;
     private Address address;
-    private int phone;
+    private String phone;
     private String website;
     private Company company;
 
@@ -28,7 +28,7 @@ public class User {
         private String street;
         private String suite;
         private String city;
-        private int zipcode;
+        private String zipcode;
         private Geo geo;
 
         @Override

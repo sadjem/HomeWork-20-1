@@ -1,10 +1,13 @@
 import Responses.*;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.List;
 
 
 public class MyApiService {
@@ -53,8 +56,28 @@ public class MyApiService {
     public User getUserById(int id){
         return gson.fromJson(takeJson("users"+id), User.class);
     }
-    /*public List <Post> getPosts(){
-        List <Post> list = new ArrayList<Post>();
-        return gson.fromJson(takeJson("posts/" + list));
-    }*/
+    public List<Post> getPosts(){
+        Type listType = new TypeToken<List<Post>>(){}.getType();
+        return gson.fromJson(takeJson("posts" ), listType);
+    }
+    public List<Album> getAlbums(){
+        Type listType = new TypeToken<List<Album>>(){}.getType();
+        return gson.fromJson(takeJson("albums" ), listType);
+    }
+    public List<Comment> getComments(){
+        Type listType = new TypeToken<List<Comment>>(){}.getType();
+        return gson.fromJson(takeJson("comments" ), listType);
+    }
+    public List<Photo> getPhotos(){
+        Type listType = new TypeToken<List<Photo>>(){}.getType();
+        return gson.fromJson(takeJson("photos" ), listType);
+    }
+    public List<Todo> getTodos(){
+        Type listType = new TypeToken<List<Todo>>(){}.getType();
+        return gson.fromJson(takeJson("todos" ), listType);
+    }
+    public List<User> getUsers(){
+        Type listType = new TypeToken<List<User>>(){}.getType();
+        return gson.fromJson(takeJson("users" ), listType);
+    }
 }
